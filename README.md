@@ -8,7 +8,7 @@
 File -> Import -> Maven -> Existing Maven Project -> "show the file path of the application you downloaded"
 
 ## Suggestion
-*If you want to see the same project with nodejs*, [click here](https://github.com/eroldmrclk/WebSitewithNodeJs).
+*If you want to see the same project with nodejs*, [click here](https://github.com/eroldmrclk/simple-ecommerce-website-nodejs).
 
 ## Sample Screenshots
 ![Screenshot-3](https://github.com/eroldmrclk/simple-ecommerce-website-java/blob/master/images/Screenshot_3.png)
