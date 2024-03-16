@@ -38,6 +38,21 @@
 	    <version>3.11.0</version>
 	</dependency>
 	</dependencies>
+	    <build>
+        <finalName>Project1</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <!-- Update source and target versions here -->
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 	<build>
 		<finalName>Project1</finalName>
 	</build>
