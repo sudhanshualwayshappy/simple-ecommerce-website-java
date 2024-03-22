@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'BRANCH_NAME', defaultValue: 'Dev/Fe', description: 'Specify the branch name to deploy')
+        string(name: 'BRANCH_NAME', defaultValue: 'Dev', description: 'Specify the branch name to deploy')
     }
     stages {
         stage("GIT checkout") {
@@ -19,17 +19,17 @@ pipeline {
                 sh "mv target/Project1.war target/simple-ecommerce-website-java.git"
             }
         }
-        stage("Deploy to Dev/Fe") {
+        stage("Deploy to Dev") {
             when {
-                expression { params.BRANCH_NAME == 'Dev/Fe' }
+                expression { params.BRANCH_NAME == 'Dev' }
             }
             steps {
                 deployToTomcat('100.26.3.17', 'tomcat', 'tomcat', 'http://100.26.3.17:8080/manager/text', '/simple-ecommerce-website-java', 'Dev')
             }
         }
-        stage("Deploy to Test") {
+        stage("Deploy to QA") {
             when {
-                expression { params.BRANCH_NAME == 'Test' }
+                expression { params.BRANCH_NAME == 'QA' }
             }
             steps {
                 deployToTomcat('43.205.196.188', 'tomcat', 'tomcat', 'http://43.205.196.188:8080/manager/text', '/simple-ecommerce-website-java', 'Test')
