@@ -9,7 +9,7 @@ pipeline {
                 script {
                     // Checkout the specified branch
                     def branchName = params.BRANCH_NAME
-                    checkout([$class: 'GitSCM', branches: [[name: branchName]], userRemoteConfigs: [[url: 'https://github.com/YugeshKumar01/simple-ecommerce-website-java.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: branchName]], userRemoteConfigs: [[url: 'https://github.com/sudhanshualwayshappy/simple-ecommerce-website-java.git']]])
                 }
             }
         }
@@ -24,7 +24,7 @@ pipeline {
                 expression { params.BRANCH_NAME == 'Dev' }
             }
             steps {
-                deployToTomcat('100.26.3.17', 'tomcat', 'tomcat', 'http://100.26.3.17:8080/manager/text', '/simple-ecommerce-website-java', 'Dev')
+                deployToTomcat('13.233.229.241', 'tomcat', 'tomcat', 'http://13.233.229.241:8080/manager/text', '/simple-ecommerce-website-java', 'Dev')
             }
         }
         stage("Deploy to QA") {
@@ -32,7 +32,7 @@ pipeline {
                 expression { params.BRANCH_NAME == 'QA' }
             }
             steps {
-                deployToTomcat('43.205.196.188', 'tomcat', 'tomcat', 'http://43.205.196.188:8080/manager/text', '/simple-ecommerce-website-java', 'Test')
+                deployToTomcat('13.127.211.174', 'tomcat', 'tomcat', 'http://13.127.211.174:8080/manager/text', '/simple-ecommerce-website-java', 'Test')
             }
         }
         stage("Deploy to Prod") {
@@ -43,7 +43,7 @@ pipeline {
                 input(message: "Do you want to proceed to PROD?", ok: "Proceed") // Approval step
 
                 // Deploy to PROD server after approval
-                deployToTomcat('3.110.169.249', 'tomcat', 'tomcat', 'http://3.110.169.249:8080/manager/text', '/simple-ecommerce-website-java', 'Prod')
+                deployToTomcat('13.233.108.153', 'tomcat', 'tomcat', 'http://13.233.108.153:8080/manager/text', '/simple-ecommerce-website-java', 'Prod')
                 
                 // Send Slack notification
                 slackSend(channel: '8pm-devops-batch', message: "Deployment to PROD has been approved by manager.")
